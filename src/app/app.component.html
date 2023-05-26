@@ -1,0 +1,747 @@
+<style>  
+:root {
+  /* Colors */
+  --color-background: #822ef5;
+  --color-foreground: #822ef5;
+  --color-title: -webkit-linear-gradient(69deg, #822ef5, #ed1c24, #822ef5);
+  --color-text: #fff;
+  --color-facebook: #1877f2;
+  --color-twitter: #1da1f2;
+  --color-linkedin: #0077b5;
+  --color-mail: #ced7db;
+  /* Fonts */
+  --title-font: 'MajorMonoDisplay';
+  --subtitle-font: 'Barlow-Regular';
+  --label-font: 'Lato-Light', 'Lato-Regular', 'sans-serif';
+  --text-font: 'Lato-Light', 'Lato-Regular', 'sans-serif';
+  --comment-font: 'Lato-Light', 'Lato-Regular', 'sans-serif';
+  /* Gradients */
+  --gradient-linear: linear-gradient(69deg, #822ef5, #ed1c24, #822ef5);
+  /* Otros */
+  --hover-padding: 21px 45px;
+  --hover-box-shadow: 0 0 1px;
+  --saturate: saturate(300%);
+}
+html {
+	overflow-y: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none
+}
+html::-webkit-scrollbar {
+	width: 0px;
+	background-color: transparent
+}
+body {
+	content-visibility: auto;
+	font-family: var(--text-font);
+	font-size: 16px;
+	font-weight: 300;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+.scrollable {
+	height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden
+}
+header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9em;
+	height: auto;
+	margin-bottom: 45px
+}
+#slogan {
+	position: fixed;
+    left: 3px;
+    top: 12px;
+    background-position: 0 0;
+	background-repeat: no-repeat;
+    background: url(../img/slogan.png) 0 0 no-repeat;
+	image-rendering: optimizeQuality;
+    background-size: auto 69px;
+    height: 21%;
+	width: 100%;
+	max-width: 369px;
+}
+@media (max-width: 767px) {
+	#slogan {
+		background-size: auto 18px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+	#slogan {
+		background-size: 36%
+	}
+}
+@media (min-width: 1024px) {
+	#slogan {
+		background-size: auto 24px
+	}
+}
+#donate-button-container {
+	position: absolute;
+	top: 9px;
+	right: 3px;
+	z-index: 999
+}
+.container {
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	align-items: center;
+    justify-content: center;
+	font-family: var(--text-font);
+	color: var(--color-text);		
+	background-image: url("");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: var(--gradient-linear);
+	background-position: top left;
+	border-radius: 9px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.1),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+	z-index: 9
+}
+h1 {
+	margin-top: 0;
+	font-family: var(--title-font);
+	background: var(--color-title);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+.column {
+	padding: 9px;
+	border: 0px solid #ddd;
+	height: auto;
+	font-size: 16px
+}
+.left-column {
+	grid-column: 1;
+	margin: 3px;
+	border-radius: 6px;
+	border: none;
+	background: transparent
+}
+#movie-poster {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto
+}
+.movie-container-left {
+  position: relative;
+}
+button[type="load"] {
+	position: absolute;
+	width: auto;
+	height: auto;
+	padding: 9px 21px;
+	margin-top: 99px auto 0;
+	background: rgba(229, 9, 20, 0.36);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
+	font-family: var(--label-font);
+	letter-spacing: 3px;
+	font-size: 15px;
+	color: #fff;
+	text-align: center;
+	border: none;
+	border-radius: 27px;
+	cursor: pointer;
+	z-index: 1
+}
+button[type="load"]:hover {
+	background: rgba(130, 46, 245, 0.36);
+}
+#trailer-button {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+.center-column{
+	grid-column: 2;
+	margin: 0 auto;
+	border: none;
+	border-radius: 9px;
+	display: inline-block;
+	vertical-align: center;
+	top: 0;
+	box-sizing: border-box;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	background: transparent
+}
+.center-column h1 {
+	font-size: 2.1em;
+	margin: 0 0 9px 0
+}
+.center-column p {
+	font-family: var(--subtitle-font);
+	font-size: 0.9em;
+	line-height: 1.5;
+	margin: 0 0 9px 0
+}
+form {
+	max-width: 600px;
+	max-height: 900px;
+	margin: 0 auto;
+	border-radius: 9px;
+	padding: 20px;
+	background: rgb(130, 46, 245, 0.1);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px)
+}
+label {
+	display: block;
+	margin-bottom: 6px;
+	font-family: var(--label-font);
+	letter-spacing: 3px;
+	font-size: 15px
+}
+select,
+input[type="number"] {
+	display: block;
+	padding: 9px;
+	width: auto;
+	margin: 0 auto;
+	margin-bottom: 0px;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #fff;
+	background-color: rgba(229, 9, 20, 0.36);  
+	backdrop-filter: blur(5px);
+}
+select:hover,
+input[type="number"]:hover {
+	background-color: rgba(130, 46, 245, 0.36); 
+}
+button[type="submit"] {
+	display: inline-flex;
+	width: 36px;
+	height: 36px;
+	padding: 36px 36px;
+	margin-top: 9px auto 0;
+	background-image: url("../img/cara.svg");
+    background-size: cover;
+	background: rgba(229, 9, 20, 0.36);
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
+	font-size: 15px;
+	color: transparent;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 1;	
+}
+button[type="submit"]:hover {
+	background-image: url("../img/cara.svg");
+    background-size: cover;
+}
+.rotar {
+	animation: rotar 777ms;
+}
+@keyframes rotar {
+	from {
+		transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(1080deg);
+	}
+}
+h2 {
+	display: none;
+}
+.right-column {
+	grid-column: 3;
+	border-radius: 6px;
+	vertical-align: center;
+	border: none;
+	width: 96%;
+	margin: 3px;
+	background: transparent;
+	background-color: transparent;
+	overflow: hidden;
+}
+.compartir {
+	display: inline-flex;
+	width: 21px;
+	height: 21px;
+	margin-top: 0 auto 0;
+	background-size: cover;
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	padding: 27px 27px;
+	cursor: pointer;
+	z-index: 1
+}
+.emoji-message {
+	font-size: 1.2em;
+	margin-bottom: 9px;
+}
+#emoji_1 {
+    background-image: url("../img/emoji_1.gif");
+	margin-bottom: 3px;
+}
+#emoji_2 {
+    background-image: url("../img/emoji_2.gif");
+	margin-bottom: 3px;
+}
+#emoji_3 {
+    background-image: url("../img/emoji_3.gif");
+	margin-bottom: 3px;
+}
+#emoji_4 {
+    background-image: url("../img/emoji_4.gif");
+	margin-bottom: 3px;
+}
+.networks {
+	height: 100vh;
+	position: sticky;
+	top: 69%;
+	transform: translateX(9%);
+	background: transparent;
+	max-width: 49%;
+	float: right;
+	z-index: 9996
+}
+.networks ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	align-items: left
+}
+.networks ul li a {
+	display: inline-block;
+	background: var(--color-background);
+	text-align: center;
+	margin: 0;
+	padding: 18px 18px;
+	text-decoration: none;
+	transition: all 300ms ease;
+	-o-transition: all 300ms ease
+}
+#facebook-icon {
+	background-image: url('../img/facebook.gif');
+	background-size: contain;
+	background-repeat: no-repeat
+}
+#twitter-icon {
+	background-image: url('../img/twitter.gif');
+	background-size: contain;
+	background-repeat: no-repeat
+}
+#linkedin-icon {
+	background-image: url('../img/linkedin.gif');
+	background-size: contain;
+	background-repeat: no-repeat
+}
+#mail-icon {
+	background-image: url('../img/mail.gif');
+	background-size: contain;
+	background-repeat: no-repeat
+}
+#empty-cells {
+	background-size: contain
+}
+.networks ul li .icon-facebook {
+	background: var(--color-facebook)
+}
+.networks ul li .icon-twitter {
+	background: var(--color-twitter)
+}
+.networks ul li .icon-linkedin {
+	background: var(--color-linkedin)
+}
+.networks ul li .icon-mail {
+	background: var(--color-mail)
+}
+.networks ul li a:hover {
+	padding: var(--hover-padding);
+	box-shadow: var(--hover-box-shadow)
+}
+.networks ul li .icon-facebook:hover {
+	box-shadow: var(--hover-box-shadow) var(--color-facebook);
+	filter: var(--saturate)
+}
+.networks ul li .icon-twitter:hover {
+	box-shadow: var(--hover-box-shadow) var(--color-twitter);
+	filter: var(--saturate)
+}
+.networks ul li .icon-linkedin:hover {
+	box-shadow: var(--hover-box-shadow) var(--color-linkedin);
+	filter: var(--saturate)
+}
+.networks ul li .icon-mail:hover {
+	box-shadow: var(--hover-box-shadow) var(--color-mail);
+	filter: var(--saturate)
+}
+#logo-1 {
+    position: fixed;
+bottom: 1px;
+    left: 0px;
+    width: 12vh;
+    height: 12vh;
+    z-index: -1;
+	background-image: url("../img/cara.svg");
+    background-size: cover;
+	animation: spinY 7777ms infinite linear
+}
+@keyframes spinY {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(720deg); }
+}
+
+#logo-2 {
+    position: fixed;
+bottom: 1px;
+    left: 0px;
+    width: 12vh;
+    height: 12vh;
+    z-index: -1;
+	background-image: url("../img/cara.svg");
+    background-size: cover;
+	animation: spinX 7777ms infinite linear
+}
+@keyframes spinX {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(720deg); }
+}
+footer.site-footer {
+    background-color: var(--color-background);
+    background-position: 97% 54%;
+    background-position: calc(100% - 30px) 54%;
+    background-position: right 30px 54%;
+    background-size: auto 18px;
+	border-radius: 9px;
+    min-height: 90px;
+    position: relative;
+    text-align: right;
+    z-index: 9;
+	image-rendering: optimizeQuality;
+	color: #fff
+}
+#logo {
+	display: inline-block;
+	position: relative;
+	right: 3px;
+	background: #fff;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent
+}
+.site-footer p {
+	display: block;
+	margin: 9px auto;
+	font-family: var(--subtitle-font);
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	position: absolute;
+	bottom: 21%;
+	font-size: 1em
+}
+.site-footer a {
+	display: block;
+	margin: 9px auto;
+	font-family: var(--subtitle-font);
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 0.7em;
+	color: inherit
+}
+.site-footer a.custom-color {
+	color: #fff
+}
+@font-face {
+    font-family: "MajorMonoDisplay";
+    src: url("../fonts/MajorMonoDisplay-Regular.ttf") format("truetype")
+}
+@font-face {
+    font-family: "Barlow-Regular";
+    src: url("../fonts/Barlow-Regular.ttf") format("truetype")
+}
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("../fonts/Lato-Regular.ttf") format("truetype")
+}
+@font-face {
+    font-family: "Lato-Light";
+    src: url("../fonts/Lato-Light.ttf") format("truetype")
+}
+@media only screen and (max-width: 768px) {
+	.container {
+		grid-template-columns: 100%;
+		padding: 0 10px;
+	}
+	.left-column, .right-column {
+		grid-column: 1;
+		margin: 3px 0;
+		width: 100%;
+	}
+	.right-column {
+		margin-bottom: 3px;
+	}
+	.center-column {
+		grid-column: 1;
+		margin: 0 auto;
+		width: 100%;
+	}
+}
+@media (max-width: 768px) {
+  footer.site-footer {
+    background-position: 50% 50%;
+    background-position: center center;
+    background-position: 0 0;
+    background-size: cover;
+    min-height: 150px;
+    text-align: center
+  }
+  .site-footer p,
+  .site-footer a {
+    position: static;
+    font-size: 0.9em;
+    margin: 15px 0
+  }
+}
+@media (min-width: 1536px) {
+footer.site-footer {
+min-height: 120px;
+font-size: 1.2em
+}
+.site-footer p,
+.site-footer a {
+font-size: 1em;
+margin: 20px 0
+}
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	<title>MovieSherpa</title>
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<link rel="stylesheet" href="styles.css" rel="stylesheet">
+		<link rel="canonical" href="https://www.moviesherpa.click/">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+		<meta name="description" content="MovieSherpa es una aplicación que te ayuda a encontrar la película perfecta para ver. 
+			Con nuestra herramienta de búsqueda, te sugerimos películas adaptadas a tus preferencias y necesidades.
+			Encuentra tu próxima película favorita con MovieSherpa.">
+		<meta name="keywords" content="Películas, Recomendaciones de películas, Ver películas, Cine, Catálogo de películas,
+			Películas por género, Películas por año, Películas de estreno">
+		<meta name="generator" content="IngenieTek - Actividad Académica">
+		<meta name="author" content="Fundación IngenieTek">
+		<meta property="og:url" content="https://www.moviesherpa.click/">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="MovieSherpa">
+		<meta property="og:description" content="MovieSherpa es una aplicación que te ayuda a encontrar la película perfecta para ver. 
+			Con nuestra herramienta de búsqueda, te sugerimos películas adaptadas a tus preferencias y necesidades.
+			Encuentra tu próxima película favorita con MovieSherpa.">
+		<meta property="og:image" content="img/logo.png">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="MovieSherpa">
+		<meta name="twitter:description" content="MovieSherpa es una aplicación que te ayuda a encontrar la película perfecta para ver. 
+			Con nuestra herramienta de búsqueda, te sugerimos películas adaptadas a tus preferencias y necesidades.
+			Encuentra tu próxima película favorita con MovieSherpa.">
+		<meta name="twitter:image" content="img/logo.svg">	
+	</head>
+	<body>
+			<header class="header">
+				<div id="slogan"></div>
+				<div id="donate-button-container">
+					<div id="donate-button"></div>
+					<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+					<script>
+						PayPal.Donation.Button({
+						env:'production',
+						hosted_button_id:'9Z3WQAA9RZ7NG',
+						image: {
+						src:'https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif',
+						alt:'Donate with PayPal button',
+						title:'PayPal - The safer, easier way to pay online!',
+						}
+						}).render('#donate-button');
+					</script>
+				</div>
+			</header>
+			<div class="networks">
+				<ul>
+					<li>
+						<a id="facebook-icon" href="https://www.facebook.com" target="_blank" class="icon-facebook">
+						</a>
+					</li>
+					<li>
+						<a id="twitter-icon" href="https://www.twitter.com" target="_blank" class="icon-twitter">
+						</a>
+					</li>
+					<li>
+						<a id="linkedin-icon" href="https://www.linkedin.com" target="_blank" class="icon-linkedin">
+						</a>
+					</li>
+					<li>
+						<a id="mail-icon" href="mailto:" class="icon-mail">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<main class="container" id="app">
+				<div class="column left-column">
+					<form id="criteria-form">
+						<h1>moVie-sherpA</h1>
+						<p>MovieDB-based Application</p>
+						<label class="label" for="age">EDAD</label>
+						<select id="age" name="age">
+							<option value="0">Todos</option>
+							<option value="7">7+</option>
+							<option value="12">12+</option>
+							<option value="16">16+</option>
+							<option value="18">18+</option>
+						</select>
+						<br>
+						<label class="label" for="genre">GÉNERO</label>
+						<select id="genre" name="genre">
+							<option value="">Todos</option>
+							<option value="28">Acción</option>						
+							<option value="16">Animación</option>
+							<option value="12">Aventura</option>
+							<option value="878">Ciencia ficción</option>
+							<option value="35">Comedia</option>
+							<option value="80">Crimen</option>
+							<option value="99">Documental</option>
+							<option value="18">Drama</option>
+							<option value="10751">Familia</option>
+							<option value="14">Fantasía</option>
+							<option value="36">Historia</option>
+							<option value="10402">Música</option>
+							<option value="9648">Misterio</option>
+							<option value="10749">Romance</option>
+							<option value="53">Suspenso</option>
+							<option value="27">Terror</option>
+						</select>
+						<br>
+						<label class="label" for="year">ESTRENO</label>
+						<input type="number" id="year" name="year" min="1923" max="2023" step="1" value="2023">
+						<br>
+						<button type="submit" id="sugeriri" class="moneda">
+							<script>
+								const boton = document.getElementById('sugeriri');
+								boton.addEventListener('click', () => {
+									boton.classList.add('rotar');
+									setTimeout(() => {
+										boton.classList.remove('rotar');
+									}, 666);
+								});
+							</script>
+						</button>
+						<br>
+						<label>SUGERIR</label>
+						<br>
+					</form>
+				</div>
+				<div class="column center-column">
+					<div class="movie-container-left">
+						<img src="img/cara.svg" id="movie-poster" alt="Movie Poster">
+						<button type="load" id="trailer-button">TRÁILER</button>
+					</div>
+				</div>
+				<div class="column right-column">
+					<button class="compartir" id="emoji_1" onclick="yoInvito()">
+					</button>
+					<span class="emoji-message" style="display: block;">¡Yo invito!</span>
+					<br>
+					<button class="compartir" id="emoji_2" onclick="invitamePalomitas()">
+					</button>
+					<span class="emoji-message" style="display: block;">¡Invitas las palomitas!</span>
+					<br>
+					<button class="compartir" id="emoji_3" onclick="teAnimas()">
+					</button>
+					<span class="emoji-message" style="display: block;">¿Te animas?</span>
+					<br>
+					<button class="compartir" id="emoji_4" onclick="tuInvitame()">
+					</button>
+					<span class="emoji-message" style="display: block;">¡Invitame!</span>
+						<script>
+							function yoInvito() {
+								var movieTitle = document.getElementById("movie-title").textContent;
+								var mensaje = "¡Hola! Te invito a ver la película: " + movieTitle + " que me ha recomendado la aplicación web [https://moviesherpa-beta.web.app/] de [https://www.ingenietek.tech/] ...¿qué dices?";
+								var url = "whatsapp://send?text=" + encodeURIComponent(mensaje);
+								window.open(url);
+							}
+						</script>					
+						<script>
+							function invitamePalomitas() {
+								var movieTitle = document.getElementById("movie-title").textContent;
+								var mensaje = "¡Hola! Yo pago las entradas a la película: " + movieTitle + " que me ha recomendado la aplicación web [https://moviesherpa-beta.web.app/] de [https://www.ingenietek.tech/]  ...¡tu pagas las palomitas!";
+								var url = "whatsapp://send?text=" + encodeURIComponent(mensaje);
+								window.open(url);
+							}
+						</script>
+						<script>
+							function teAnimas() {
+								var movieTitle = document.getElementById("movie-title").textContent;
+								var mensaje = "¡Hola! La aplicación web [https://moviesherpa-beta.web.app/] de [https://www.ingenietek.tech/] me ha sugerido ver la película: " + movieTitle + " en compañía de una persona agradable  ...¿Te animas?";
+								var url = "whatsapp://send?text=" + encodeURIComponent(mensaje);
+								window.open(url);
+							}
+						</script>		
+						<script>
+							function tuInvitame() {
+								var movieTitle = document.getElementById("movie-title").textContent;
+								var mensaje = "¡Hola! Invitame a ver la película: " + movieTitle + " que me ha recomendado la aplicación web [https://moviesherpa-beta.web.app/] de [https://www.ingenietek.tech/]  ...¡verás una excelente película y contarás con una excelente compañía!";
+								var url = "whatsapp://send?text=" + encodeURIComponent(mensaje);
+								window.open(url);
+							}
+						</script>
+					<div class="movie-container-right">
+							<h2 id="movie-title"></h2>
+							<p id="movie-overview"></p>
+					</div>	
+				</div>
+			</main>
+			<script>
+				document.addEventListener("DOMContentLoaded", function(event) {
+					var inicio = document.querySelector("#app");
+					inicio.scrollIntoView();
+				});
+			</script>
+			<footer class="site-footer">
+				<div id="logo-1" alt=""> </div>
+				<div id="logo-2" alt=""> </div>
+					<h1 id="logo">
+						inGenietek
+					</h1>
+				<p title="The content of this webpage, including but not limited to text, graphics, logos, images, codes, and software, is protected by copyright. However, distribution, display, and free publication of the content is permitted provided that proper credit is given to InĝenieTek Foundation, it is done non-commercially, and the content is not modified. Any other reproduction, modification, transmission, sale, or use of the content on this webpage requires the prior written permission of InĝenieTek Foundation.">
+					&copy; <?php echo date('Y'); ?> InĝenieTek | Technology-based Foundation | Copyright
+				</p>
+				<a href=">privacy-policy-and-terms-of-use" target="_blank">Privacy Policy and Terms of Use</a>
+			</footer>
+  <script src="scripts/movie-sherpa.ts"></script>
+	<script src="scripts/social-networks.ts"></script>
+	<script src="scripts/movie-trailer.ts"></script>
+	<script src="scripts/privacy-policy.ts"></script>
+	<script src="scripts/alert-parameters.ts"></script>
+	
+  <script type="text/javascript" src="scripts/movie-sherpa.js" defer></script>
+	<script type="text/javascript" src="scripts/social-networks.js" async></script>
+	<script type="text/javascript" src="scripts/movie-trailer.js" async></script>
+	<script type="text/javascript" src="scripts/privacy-policy.js" async></script>
+	<script type="text/javascript" src="scripts/alert-parameters.js" async></script>
+	</body>
+</html>
